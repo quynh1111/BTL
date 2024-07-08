@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Bán Vé Xem Phim Online</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* CSS cho trang chủ */
+        .banner {
+            background: url('banner.jpg') no-repeat center center/cover;
+            padding: 100px 0;
+        }
+
+        .movies .card {
+            border: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .movies .card:hover {
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .movies .card-img-top {
+            border-radius: 5px 5px 0 0;
+        }
+
+        .movies .card-body {
+            background: #fff;
+            border-radius: 0 0 5px 5px;
+            padding: 20px;
+        }
+
+        .movies .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .movies .card-text {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white">
+        <div class="container">
+            <!-- Header và thanh điều hướng -->
+        </div>
+    </header>
+
+    <section class="movies py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Phim Đang Chiếu</h2>
+            <div class="row" id="movie-list">
+                <!-- Các thẻ phim sẽ được chèn vào đây -->
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2024 Phim Online. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Các tệp script -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript cho trang chủ
+        $(document).ready(function() {
+            loadMovies(); // Tải danh sách phim khi trang được tải
+            
+            // Hàm để tải danh sách phim
+            function loadMovies() {
+                $.get("http://localhost:3000/Phim", function(data) {
+                    var movieList = $('#movie-list');
+                    movieList.empty();
+                    data.forEach(function(movie) {
+                        // Hiển thị mỗi thẻ phim
+                        movieList.append(
+                            `<div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <img src="${movie.poster}" style="height: 250px;" class="card-img-top" alt="${movie.tenphim}">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">${movie.tenphim}</h5>
+                                        <p>Giá vé: ${movie.giave}</p>
+                                        <a href="trangchitiet.html?id=${movie.id}&tenphim=${encodeURIComponent(movie.tenphim)}&poster=${encodeURIComponent(movie.poster)}&maphim=${movie.maphim}&giochieu=${movie.giochieu}&gioketthuc=${movie.gioketthuc}&soluongghengoi=${movie.soluongghengoi}&giave=${movie.giave}" class="btn btn-dark stretched-link">Mua Vé</a>
+                                    </div>
+                                </div>
+                            </div>`
+                        );
+                    });
+                }).fail(function() {
+                    alert("Không thể tải danh sách phim. Vui lòng thử lại sau.");
+                });
+            }
+        });
+    </script>
+</body>
+</html>

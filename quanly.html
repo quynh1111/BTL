@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý và đặt vé xem phim</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <style>
+        /* Reset and common font */
+        body, h1, h2, h3, h4, p, ul, li, input, button, select {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f2f2f2;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="datetime-local"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Quản lý và đặt vé xem phim</h1>
+        </header>
+
+        <div class="form-section">
+            <h2>Thêm phim</h2>
+            <form id="Vephim">
+                <div class="form-group">
+                    <label for="rapphim">Rạp Phim:</label>
+                    <select id="rapphim" name="rapphim" required>
+                        <option value="hadong">Hà Đông</option>
+                        <option value="namtuliem">Nam Từ Liêm</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="loaiphim">Loại Phim:</label>
+                    <select id="loaiphim" name="loaiphim" required>
+                        <option value="hanhdong">Hành động</option>
+                        <option value="hoathinh">Hoạt hình</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tenphim">Tên phim:</label>
+                    <input type="text" id="tenphim" name="tenphim" placeholder="Nhập tên phim" required>
+                </div>
+                <div class="form-group">
+                    <label for="giochieu">Giờ chiếu:</label>
+                    <input type="datetime-local" id="giochieu" name="giochieu" required>
+                </div>
+                <div class="form-group">
+                    <label for="gioketthuc">Giờ kết thúc:</label>
+                    <input type="datetime-local" id="gioketthuc" name="gioketthuc" required>
+                </div>
+                <div class="form-group">
+                    <label for="soluongghengoi">Số lượng ghế ngồi:</label>
+                    <input type="number" id="soluongghengoi" name="soluongghengoi" placeholder="Nhập số lượng ghế ngồi" required>
+                </div>
+                <div class="form-group">
+                    <label for="soluongghecontrong">Số lượng ghế còn trống:</label>
+                    <input type="number" id="soluongghecontrong" name="soluongghecontrong" placeholder="Nhập số lượng ghế còn trống" required>
+                </div>
+                <div class="form-group">
+                    <label for="giave">Giá vé:</label>
+                    <input type="number" id="giave" name="giave" placeholder="Nhập giá vé" required>
+                </div>
+                <div class="form-group">
+                    <label for="maphim">Mã phim:</label>
+                    <input type="number" id="maphim" name="maphim" placeholder="Nhập mã phim" required>
+                </div>
+                <div class="form-group">
+                    <label for="poster">Poster:</label>
+                    <input type="text" id="poster" name="poster" placeholder="Nhập URL của poster" required>
+                </div>
+                <button type="button" id="add-movie-btn">Thêm phim</button>
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Danh sách các phim</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rạp Phim</th>
+                        <th>Loại Phim</th>
+                        <th>Tên Phim</th>
+                        <th>Giờ Chiếu</th>
+                        <th>Giờ Kết Thúc</th>
+                        <th>Số Lượng Ghế Ngồi</th>
+                        <th>Số Lượng Ghế Còn Trống</th>
+                        <th>Giá Vé</th>
+                        <th>Mã Phim</th>
+                        <th>Poster</th>
+                    </tr>
+                </thead>
+                <tbody id="movie-list">
+                    <!-- Movie items will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function loadMovies() {
+            $.get("http://localhost:3000/Phim", function(data) {
+                var movieList = $('#movie-list');
+                movieList.empty();
+                for (var i = 0; i < data.length; i++) {
+                    movieList.append(
+                        `<tr>
+                            <td>${data[i].rapphim}</td>
+                            <td>${data[i].loaiphim}</td>
+                            <td>${data[i].tenphim}</td>
+                            <td>${data[i].giochieu}</td>
+                            <td>${data[i].gioketthuc}</td>
+                            <td>${data[i].soluongghengoi}</td>
+                            <td>${data[i].soluongghecontrong}</td>
+                            <td>${data[i].giave}</td>
+                            <td>${data[i].maphim}</td>
+                            <td><img src="${data[i].poster}" alt="${data[i].tenphim}" style="max-width: 50px;"></td>
+                        </tr>`
+                    );
+                }
+            });
+        }
+
+        function validateInput() {
+            var rapphim = $('#rapphim').val().trim();
+            var loaiphim = $('#loaiphim').val().trim();
+            var tenphim = $('#tenphim').val().trim();
+            var giochieu = $('#giochieu').val();
+            var gioketthuc = $('#gioketthuc').val();
+            var soluongghengoi = parseInt($('#soluongghengoi').val(), 10);
+            var soluongghecontrong = parseInt($('#soluongghecontrong').val(), 10);
+            var giave = parseFloat($('#giave').val());
+            var maphim = parseInt($('#maphim').val(), 10);
+
+            if (rapphim === "" || loaiphim === "" || tenphim === "") {
+                alert("Vui lòng nhập đầy đủ thông tin.");
+                return false;
+            }
+
+            if (giochieu >= gioketthuc) {
+                alert("Giờ chiếu phải nhỏ hơn giờ kết thúc.");
+                return false;
+            }
+
+            if (soluongghengoi <= 0 || soluongghecontrong < 0 || soluongghecontrong > soluongghengoi) {
+                alert("Số lượng ghế không hợp lệ.");
+                return false;
+            }
+
+            if (giave <= 0) {
+                alert("Giá vé phải lớn hơn 0.");
+                return false;
+            }
+
+            if (isNaN(maphim) || maphim <= 0) {
+                alert("Mã phim không hợp lệ.");
+                return false;
+            }
+
+            return true;
+        }
+
+        $(document).ready(function() {
+            loadMovies();
+
+            $('#add-movie-btn').click(function() {
+                if (validateInput()) {
+                    var movie = {
+                        rapphim: $('#rapphim').val(),
+                        loaiphim: $('#loaiphim').val(),
+                        tenphim: $('#tenphim').val(),
+                        giochieu: $('#giochieu').val(),
+                        gioketthuc: $('#gioketthuc').val(),
+                        soluongghengoi: $('#soluongghengoi').val(),
+                        soluongghecontrong: $('#soluongghecontrong').val(),
+                        giave: $('#giave').val(),
+                        maphim: $('#maphim').val(),
+                        poster: $('#poster').val()
+                    };
+
+                    $.ajax({
+                        url: "http://localhost:3000/Phim",
+                        method: "POST",
+                        data: JSON.stringify(movie),
+                        contentType: "application/json",
+                        success: function() {
+                            loadMovies();
+                            $('#Vephim')[0].reset(); // Reset form after successful addition
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

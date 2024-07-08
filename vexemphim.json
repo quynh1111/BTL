@@ -1,0 +1,214 @@
+{
+  "Phim": [
+    {
+      "id": "7",
+      "rapphim": "hadong",
+      "loaiphim": "hoathinh",
+      "tenphim": "tenphim",
+      "giochieu": "09:00:00",
+      "gioketthuc": "010:00:00",
+      "soluongghengoi": "50",
+      "soluongghecontrong": "10",
+      "gia": "1000000",
+      "maphim": "777",
+      "anhminhhoa": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREHERi07Anw6SnN6n24cCtrn-LxNaXtjRaew&s"
+    },
+    {
+      "id": "7",
+      "rapphim": "hadong",
+      "loaiphim": "hoathinh",
+      "tenphim": "tenphim",
+      "giochieu": "09:00:00",
+      "gioketthuc": "010:00:00",
+      "soluongghengoi": "50",
+      "soluongghecontrong": "10",
+      "gia": "1000000",
+      "maphim": "777",
+      "anhminhhoa": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREHERi07Anw6SnN6n24cCtrn-LxNaXtjRaew&s"
+    },
+    {
+      "id": "7",
+      "rapphim": "hadong",
+      "loaiphim": "hoathinh",
+      "tenphim": "tenphim",
+      "giochieu": "09:00:00",
+      "gioketthuc": "010:00:00",
+      "soluongghengoi": "50",
+      "soluongghecontrong": "10",
+      "gia": "1000000",
+      "maphim": "777",
+      "anhminhhoa": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREHERi07Anw6SnN6n24cCtrn-LxNaXtjRaew&s"
+    },
+    {
+      "id": "7",
+      "rapphim": "hadong",
+      "loaiphim": "hoathinh",
+      "tenphim": "tenphim",
+      "giochieu": "09:00:00",
+      "gioketthuc": "010:00:00",
+      "soluongghengoi": "50",
+      "soluongghecontrong": "10",
+      "gia": "1000000",
+      "maphim": "777",
+      "anhminhhoa": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREHERi07Anw6SnN6n24cCtrn-LxNaXtjRaew&s"
+    },
+    {
+      "id": "38dc",
+      "rapphim": "hadong",
+      "loaiphim": "hanhdong",
+      "tenphim": "ưqew",
+      "giochieu": "2024-07-01T14:32",
+      "gioketthuc": "2024-07-01T15:33",
+      "soluongghengoi": "20",
+      "soluongghecontrong": "10",
+      "giave": "200",
+      "maphim": "777",
+      "poster": "https://assets2.htv.com.vn/Images/.NEWZ/09.2023/01/LANH/Screenshot%202023-09-01%20202642.png"
+    },
+    {
+      "id": "907b",
+      "rapphim": "hadong",
+      "loaiphim": "hanhdong",
+      "tenphim": "quynh",
+      "giochieu": "2024-07-01T16:16",
+      "gioketthuc": "2024-07-01T17:16",
+      "soluongghengoi": "10",
+      "soluongghecontrong": "5",
+      "giave": "500",
+      "maphim": "111",
+      "poster": "https://bqn.1cdn.vn/2024/02/06/441-202402061212041.png"
+    },
+    {
+      "id": "4df7",
+      "rapphim": "hadong",
+      "loaiphim": "hanhdong",
+      "tenphim": "",
+      "giochieu": "",
+      "gioketthuc": "",
+      "soluongghengoi": "",
+      "soluongghecontrong": "",
+      "giave": "",
+      "maphim": "",
+      "poster": ""
+    },
+    {
+      "id": "542f",
+      "rapphim": "hadong",
+      "loaiphim": "hanhdong",
+      "tenphim": "",
+      "giochieu": "",
+      "gioketthuc": "",
+      "soluongghengoi": "",
+      "soluongghecontrong": "",
+      "giave": "",
+      "maphim": "",
+      "poster": ""
+    },
+    {
+      "id": "8192",
+      "rapphim": "hadong",
+      "loaiphim": "hanhdong",
+      "tenphim": "",
+      "giochieu": "",
+      "gioketthuc": "",
+      "soluongghengoi": "",
+      "soluongghecontrong": "",
+      "giave": "",
+      "maphim": "",
+      "poster": ""
+    }
+  ],
+  "datve": [
+    {
+      "id": "1",
+      "tenkhachhang": "A",
+      "maphim": "111",
+      "soluongve": "2 ",
+      "loaichongoi": "vip"
+    },
+    {
+      "id": "2",
+      "tenkhachhang": "b",
+      "maphim": "111",
+      "soluongve": "2 ",
+      "loaichongoi": "vip"
+    },
+    {
+      "id": "3",
+      "tenkhachhang": "A",
+      "maphim": "111",
+      "soluongve": "2 ",
+      "loaichongoi": "vip"
+    },
+    {
+      "id": "4",
+      "tenkhachhang": "A",
+      "mave": "111",
+      "soluongve": "2 ",
+      "loaichongoi": "vip"
+    },
+    {
+      "id": "5",
+      "tenkhachhang": "A",
+      "maphim": "111",
+      "soluongve": "2 ",
+      "loaichongoi": "vip"
+    },
+    {
+      "id": "6",
+      "tenkhachhang": "A",
+      "maphim": "111",
+      "soluongve": "2 ",
+      "loaichongoi": "vip"
+    },
+    {
+      "id": "f345",
+      "tenkhachhang": "quynh",
+      "maphim": "123",
+      "soluongve": "2",
+      "loaichongoi": "phothong"
+    },
+    {
+      "id": "8010",
+      "tenkhachhang": "dung",
+      "maphim": "222",
+      "soluongve": "2",
+      "loaichongoi": "phothong"
+    },
+    {
+      "id": "52a5",
+      "tenkhachhang": "quynh",
+      "maphim": "111",
+      "soluongve": "2",
+      "loaichongoi": "VIP"
+    },
+    {
+      "id": "1fba",
+      "tenkhachhang": "",
+      "maphim": "",
+      "soluongve": "",
+      "loaichongoi": "VIP"
+    },
+    {
+      "id": "0ab3",
+      "tenkhachhang": "",
+      "maphim": "",
+      "soluongve": "",
+      "loaichongoi": "VIP"
+    },
+    {
+      "id": "291a",
+      "tenkhachhang": "",
+      "maphim": "",
+      "soluongve": "",
+      "loaichongoi": "VIP"
+    },
+    {
+      "id": "0afa",
+      "tenkhachhang": "",
+      "maphim": "",
+      "soluongve": "",
+      "loaichongoi": "VIP"
+    }
+  ]
+}

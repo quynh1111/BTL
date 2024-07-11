@@ -11,7 +11,9 @@
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             line-height: 1.6;
-                }
+            margin: 0;
+            padding: 0;
+        }
 
         .container {
             width: 80%;
@@ -77,6 +79,17 @@
             background-color: #0056b3;
         }
 
+        #trangchu {
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
         #thongbao {
             text-align: center;
             margin-top: 15px;
@@ -90,7 +103,6 @@
         .error-msg {
             color: red;
         }
-
 
     </style>
 </head>
@@ -121,6 +133,7 @@
                 </select>
             </div>
             <button type="button" onclick="datVe()">Đặt vé</button>
+            <a id="trangchu" href="trangchuchinh.html">Trang chủ</a>
         </form>
 
         <div id="thongbao"></div>
@@ -149,6 +162,9 @@
                 <p>Giá vé: ${giave}</p>
             `);
 
+            // Điền thông tin phim vào các thẻ input
+            $('#maphim').val(maphim);
+
             // Đặt vé
             window.datVe = function() {
                 var tenkhachhang = $('#tenkhachhang').val();
@@ -164,7 +180,7 @@
                 // Gửi dữ liệu đặt vé lên server
                 $.ajax({
                     type: 'POST',
-                    url: 'http://localhost:3000/Phim/Booking',
+                    url: 'http://localhost:3000/datve',
                     contentType: 'application/json',
                     data: JSON.stringify({
                         tenkhachhang: tenkhachhang,
@@ -173,13 +189,14 @@
                         loaichongoi: loaichongoi
                     }),
                     success: function(response) {
-                        if (response.success) {
+                        console.log(response);
                             $('#thongbao').html('<p class="success-msg">Đặt vé thành công.</p>');
-                        } else {
-                            $('#thongbao').html(`<p class="error-msg">${response.message}</p>`);
-                        }
+                        
                     },
-                    error: function() {
+                    error: function(xhr, status, error) {
+                        console.log('Status:', status);
+                        console.log('Error:', error);
+                        console.log('Response:', xhr.responseText);
                         $('#thongbao').html('<p class="error-msg">Đã xảy ra lỗi. Vui lòng thử lại sau.</p>');
                     }
                 });

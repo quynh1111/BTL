@@ -251,6 +251,23 @@
                 alert('Vui lòng điền đầy đủ thông tin.');
                 return false;
             }
+            if (isNaN(soluongghengoi) || isNaN(soluongghecontrong) || isNaN(giave) || isNaN(maphim)) {
+                alert('Vui lòng nhập số cho các trường số.');
+                return false;
+            }
+            if (parseInt(soluongghengoi) <= 0 || parseInt(soluongghecontrong) <= 0 || parseInt(giave) <= 0 || parseInt(maphim) <= 0) {
+                alert('Vui lòng nhập số lớn hơn 0 cho các trường số.');
+                return false;
+            }
+            if (new Date(giochieu) >= new Date(gioketthuc)) {
+                alert('Giờ chiếu phải nhỏ hơn giờ kết thúc.');
+                return false;
+            }
+            if (!isValidURL(poster)) {
+                alert('Vui lòng nhập đúng định dạng URL cho poster.');
+                return false;
+            }
+
 
             return true;
         }

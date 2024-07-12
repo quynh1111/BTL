@@ -5,34 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ - Bán Vé Xem Phim Online</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS cho trang chủ */
-        .banner {
-            background: url('banner.jpg') no-repeat center center/cover;
-            padding: 100px 0;
+       /* CSS cho trang chủ */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #1c1c1c;
+            padding: 20px 0;
+        }
+
+        header .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        header .navbar-nav .nav-link {
+            color: #fff;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        header .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .movies {
+            padding: 60px 0;
         }
 
         .movies .card {
             border: none;
-            transition: box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .movies .card:hover {
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .movies .card-img-top {
-            border-radius: 5px 5px 0 0;
+            height: 300px;
+            object-fit: cover;
         }
 
         .movies .card-body {
             background: #fff;
-            border-radius: 0 0 5px 5px;
             padding: 20px;
+            text-align: center;
         }
 
         .movies .card-title {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: #333;
         }
@@ -42,69 +73,111 @@
             margin-top: 10px;
         }
 
+        .movies .btn-dark {
+            background-color: #343a40;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .movies .btn-dark:hover {
+            background-color: #495057;
+        }
+
         footer {
-            background: #333;
+            background: #1c1c1c;
             color: #fff;
-            padding: 20px 0;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
         }
 
     </style>
 </head>
 <body>
-    <header class="bg-dark text-white">
-        <div class="container">
-            <!-- Header và thanh điều hướng -->
-        </div>
-    </header>
-
-    <section class="movies py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Phim Đang Chiếu</h2>
-            <div class="row" id="movie-list">
-                <!-- Các thẻ phim sẽ được chèn vào đây -->
+    <body>
+        <header class="bg-dark text-white">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <a class="navbar-brand" href="#">Phim Online</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="trangchuchinh.html">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="trangchuchinh.html">Phim Đang Chiếu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Liên Hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </div>
-    </section>
+        </header>
     
-    <footer class="bg-dark text-white text-center py-3">
-        <div class="container">
-            <p>&copy; 2024 Phim Online.</p>
-        </div>
-    </footer>
-
-    <!-- Các tệp script -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // JavaScript cho trang chủ
-        $(document).ready(function() {
-            loadMovies(); // Tải danh sách phim khi trang được tải
-            
-            // Hàm để tải danh sách phim
-            function loadMovies() {
-                $.get("http://localhost:3000/Phim", function(data) {
-                    var movieList = $('#movie-list');
-                    movieList.empty();
-                    data.forEach(function(movie) {
-                        // Hiển thị mỗi thẻ phim
-                        movieList.append(
-                            `<div class="col-md-3 mb-4">
-                                <div class="card">
-                                    <img src="${movie.poster}" style="height: 250px;" class="card-img-top" alt="${movie.tenphim}">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">${movie.tenphim}</h5>
-                                        <p>Giá vé: ${movie.giave}</p>
-                                        <a href="trangchitiet.html?id=${movie.id}&tenphim=${encodeURIComponent(movie.tenphim)}&poster=${encodeURIComponent(movie.poster)}&maphim=${movie.maphim}&giochieu=${movie.giochieu}&gioketthuc=${movie.gioketthuc}&soluongghengoi=${movie.soluongghengoi}&giave=${movie.giave}" class="btn btn-dark stretched-link">Mua Vé</a>
+        <section class="banner">
+            <div class="container">
+                <h1>Chào mừng đến với Phim Online</h1>
+                <p>Mua vé nhanh chóng và tiện lợi!</p>
+            </div>
+        </section>
+    
+        <section class="movies py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Phim Đang Chiếu</h2>
+                <div class="row" id="movie-list">
+                    <!-- Các thẻ phim sẽ được chèn vào đây -->
+                </div>
+            </div>
+        </section>
+        
+        <footer class="bg-dark text-white text-center py-3">
+            <div class="container">
+                <p>&copy; 2024 Phim Online.</p>
+            </div>
+        </footer>
+    
+        <!-- Các tệp script -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            // JavaScript cho trang chủ
+            $(document).ready(function() {
+                loadMovies(); // Tải danh sách phim khi trang được tải
+                
+                // Hàm để tải danh sách phim
+                function loadMovies() {
+                    $.get("http://localhost:3000/Phim", function(data) {
+                        var movieList = $('#movie-list');
+                        movieList.empty();
+                        data.forEach(function(movie) {
+                            // Hiển thị mỗi thẻ phim
+                            movieList.append(
+                                `<div class="col-md-3 mb-4">
+                                    <div class="card">
+                                        <img src="${movie.poster}" class="card-img-top" alt="${movie.tenphim}">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">${movie.tenphim}</h5>
+                                            <p>Giá vé: ${movie.giave}</p>
+                                            <a href="trangchitiet.html?id=${movie.id}&tenphim=${encodeURIComponent(movie.tenphim)}&poster=${encodeURIComponent(movie.poster)}&maphim=${movie.maphim}&giochieu=${movie.giochieu}&gioketthuc=${movie.gioketthuc}&soluongghengoi=${movie.soluongghengoi}&giave=${movie.giave}" class="btn btn-dark stretched-link">Mua Vé</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>`
-                        );
+                                </div>`
+                            );
+                        });
+                    }).fail(function() {
+                        alert("Không thể tải danh sách phim. Vui lòng thử lại sau.");
                     });
-                }).fail(function() {
-                    alert("Không thể tải danh sách phim. Vui lòng thử lại sau.");
-                });
-            }
-        });
-    </script>
+                }
+            });
+        </script>
+    </body>
 </body>
 </html>
